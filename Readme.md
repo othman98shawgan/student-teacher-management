@@ -1,107 +1,124 @@
-# Student-Teacher Management System
+# 🎓 Student-Teacher Management System
 
-A full-stack role-based web application for managing students, teachers, and assignments.
+A full-stack web application for managing students, teachers, and assignments with role-based access.
+
+---
 
 ## 🧱 Tech Stack
-- **Backend:** ASP.NET Core (.NET 8)
-- **Frontend:** React + TypeScript + Vite
+
+- ⚙️ **Backend:** ASP.NET Core (.NET 8)
+- ⚛️ **Frontend:** React + TypeScript + Vite
+- 💾 **Database:** SQL Server (via Entity Framework Core)
 
 ---
 
 ## 📁 Project Structure
+
 ```
 student-teacher-management/
-├── backend/       # ASP.NET Core API
-├── frontend/      # React frontend
-├── run.sh         # Script to run both frontend and backend
+├── backend/         # ASP.NET Core Web API
+├── frontend/        # React frontend with Vite
+├── run.bat          # Windows script to install & run both
 └── README.md
 ```
 
 ---
 
-## ⚙️ Prerequisites
-- [.NET 8 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- [Node.js LTS](https://nodejs.org/en)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install/) (optional)
+## 🧰 Prerequisites
+
+Make sure these are installed before starting:
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- [Node.js + npm](https://nodejs.org/)
+- [Git Bash](https://git-scm.com/downloads) or PowerShell
+- [Visual Studio Code](https://code.visualstudio.com/) or another IDE
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Setup Instructions
 
-### 1. Clone the Repository
+### 1️⃣ Clone the Repository
+
 ```bash
 git clone https://github.com/your-username/student-teacher-management.git
 cd student-teacher-management
 ```
 
-### 2. Install Dependencies
+### 2️⃣ Backend Setup
 
-#### Backend
 ```bash
 cd backend
-
 dotnet restore
+dotnet ef database update
 ```
 
-#### Frontend
+> 🛠 If `dotnet ef` is not recognized, install the CLI globally:
+
+```bash
+dotnet tool install --global dotnet-ef
+```
+
+### 3️⃣ Frontend Setup
+
 ```bash
 cd ../frontend
-
-npm install  # or yarn
+npm install
 ```
 
 ---
 
-## 🏁 Run Both Projects Together
+## ▶️ Running the Project (Windows)
 
-Use the provided script:
+Double-click the `run.bat` file in the root of the project. It will:
 
-### ✅ macOS/Linux:
-```bash
-chmod +x run.sh
-./run.sh
-```
+- 🔧 Restore dependencies
+- 🧠 Run database migrations
+- 🚀 Start the **backend** (`https://localhost:7178`)
+- 💻 Start the **frontend** (`http://localhost:5173`)
 
-### ✅ Windows (PowerShell):
-Run backend and frontend manually in separate terminals or convert the script.
+Two PowerShell windows will open — one for each service.
 
 ---
 
-## 🧪 Running Manually
+## 📫 Postman Collection
 
-### Backend
-```bash
-cd backend
-dotnet run --urls "https://localhost:7178;http://localhost:5105"
-```
+Import the full API into Postman using:
 
-### Frontend
-```bash
-cd frontend
-npm run dev
-```
-Frontend will run at `http://localhost:5173`
+📁 `StudentTeacherAPI.postman_collection.json`
+
+> After logging in, set `{{token}}` in your environment for protected routes.
 
 ---
 
-## 📌 Notes
-- Make sure the backend is reachable from the frontend (CORS is configured).
-- If using HTTPS locally, accept the .NET dev certificate when prompted.
+## 📚 API Overview
+| Endpoint                                      | Method | Role     | Description                          |
+|-----------------------------------------------|--------|----------|--------------------------------------|
+| `/api/auth/register`                          | POST   | All      | Register a new user                  |
+| `/api/auth/login`                             | POST   | All      | Login (Student & Teacher)            |
+| `/api/auth/me`                                | GET    | Authenticated | Get current user profile        |
+| `/api/teacher/assignments`                    | POST   | Teacher  | Create assignment                    |
+| `/api/teacher/assignments`                    | GET    | Teacher  | Get teacher's assignments            |
+| `/api/teacher/assignments/{id}`               | PUT    | Teacher  | Edit assignment                      |
+| `/api/teacher/assignments/{id}`               | DELETE | Teacher  | Delete assignment                    |
+| `/api/teacher/assignments/{id}/submissions`   | GET    | Teacher  | View submissions for assignment      |
+| `/api/teacher/grade`                          | POST   | Teacher  | Grade a student submission           |
+| `/api/student/assignments`                    | GET    | Student  | View all available assignments       |
+| `/api/student/submit`                         | POST   | Student  | Submit assignment                    |
+| `/api/student/submissions`                    | GET    | Student  | View student submissions & grades    |
+| `/health`                                     | GET    | Public   | Health check                         |
 
 ---
 
-## 🧠 Default Roles
-- `Student`
-- `Teacher`
+## 📝 Notes
 
-Choose the role during registration.
-
----
-
-## 📬 Contact
-For questions, open an issue or email: [oth1998@gmail.com](mailto:oth1998@gmail.com)
+- Backend runs on both `https://localhost:7178` and `http://localhost:5105`.
+- Frontend uses Vite and runs on `http://localhost:5173`.
+- Role-based access control is implemented using ASP.NET Identity.
+- You can customize roles/permissions in `backend/Program.cs` or `Startup.cs`.
 
 ---
 
-Happy Hacking! 🎓💻
+## 💡 Tips
 
+- For quick testing, register a teacher and student user and switch roles.
+- Add more features like notifications, grading analytics, or file uploads if needed.
