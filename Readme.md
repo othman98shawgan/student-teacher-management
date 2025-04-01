@@ -99,7 +99,7 @@ Choose the role during registration.
 ---
 
 ## 📬 Contact
-For questions, open an issue or email: [your-email@example.com](mailto:your-email@example.com)
+For questions, open an issue or email: [oth1998@gmail.com](mailto:oth1998@gmail.com)
 
 ---
 
