@@ -1,0 +1,380 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  height: 100vh;
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1a1a1a; /* same as container bg */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 2rem;
+}
+
+.logo {
+  max-width: 200px;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-bottom: 0.25rem;
+  font-size: 1.5rem;
+}
+
+.subtext {
+  margin-bottom: 2rem;
+  color: #ccc;
+}
+
+.subtext a {
+  color: #4da3ff;
+  text-decoration: none;
+}
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form input {
+  padding: 0.9rem 1rem;
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  background: #222;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.password-wrapper input {
+  width: 80%;
+  padding-right: 3rem; /* space for the icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.1rem;
+  color: #ccc;
+}
+
+.submit {
+  margin-top: 0.4rem;
+  padding: 0.9rem;
+  background-color: #4d8cff;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+.submit:hover {
+  background-color: #336ee1;
+}
+
+.register-text {
+  margin-bottom: 2rem;
+}
+select {
+  padding: 0.9rem 1rem;
+  padding-right: 2.5rem; /* <-- space for the native arrow */
+  border: 1px solid #444;
+  border-radius: 0.5rem;
+  background: #222;
+  color: #fff;
+  font-size: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.dashboard {
+  min-height: 100vh;
+  background: #1a1a1a;
+  color: white;
+  padding: 2rem;
+  font-family: sans-serif;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.profile-section {
+  position: relative;
+}
+
+.profile-corner {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  background-color: #444;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  width: 180px;
+  right: 0;
+  top: 60px;
+  background: #333;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.dropdown p {
+  margin: 0 0 0.5rem 0;
+  font-weight: bold;
+}
+
+.dashboard-content {
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  padding: 2rem;
+}
+
+.teacher-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.student-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.dropdown button {
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 0;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+  text-align: left;
+  width: 100%;
+  font-weight: bold;
+}
+
+.dropdown button:hover {
+  color: #aaa;
+}
+
+.dashboard-btn {
+  padding: 2rem 1.6rem;
+  font-size: 1.6rem;
+  background-color: #4d8cff;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  min-height: 100px;
+  transition: background 0.2s;
+}
+
+.btn-create {
+  background-color: #4caf50; /* green */
+}
+.btn-delete {
+  background-color: #f44336; /* red */
+}
+.btn-edit {
+  background-color: #ff9800; /* orange */
+}
+.btn-view {
+  background-color: #2196f3; /* blue */
+}
+.btn-grade {
+  background-color: #9c27b0; /* purple */
+}
+
+.dashboard-btn:hover {
+  filter: brightness(1.1);
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #1e1e1e;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 500px;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: white;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-form input,
+.modal-form textarea {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1rem;
+}
+
+.modal-form button {
+  font-weight: bold;
+  padding: 0.8rem;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.modal-form button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Student Assignments Table Styles */
+.assignments-table-container {
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+.assignments-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.assignments-table thead tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.assignments-table th {
+  text-align: left;
+  padding: 8px;
+  font-weight: 600;
+}
+
+.assignments-table th:nth-child(1) {
+  width: 25%;
+}
+.assignments-table th:nth-child(2) {
+  width: 20%;
+}
+.assignments-table th:nth-child(3) {
+  width: 20%;
+}
+.assignments-table th:nth-child(4) {
+  width: 15%;
+}
+.assignments-table th:nth-child(5) {
+  width: 20%;
+}
+
+.assignments-table tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+.assignments-table td {
+  padding: 8px;
+  vertical-align: top;
+}
+
+.assignments-table td:first-child {
+  word-wrap: break-word;
+}
+
+.submission-link {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.submission-link:hover {
+  text-decoration: underline;
+}
